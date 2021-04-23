@@ -10942,3 +10942,20 @@ a.text-dark:focus {
   }
 }
 
+.card {
+    width: 50%;
+    margin: auto;
+}
+
+.form_text {
+    width: 50%;
+    margin: auto;
+    margin-bottom: 60px;
+    text-align: right;
+}
+
+.text_btn {
+    display: inline;
+}
+
+
