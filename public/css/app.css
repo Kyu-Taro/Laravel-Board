@@ -10945,6 +10945,7 @@ a.text-dark:focus {
 .card {
     width: 50%;
     margin: auto;
+    margin-bottom: 20px;
 }
 
 .form_text {
@@ -10956,6 +10957,14 @@ a.text-dark:focus {
 
 .text_btn {
     display: inline;
+}
+
+.config {
+    float: right;
+    font-size: 25px;
+    position: relative;
+    bottom: 7px;
+    cursor: pointer;
 }
 
 

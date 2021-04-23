@@ -19,4 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+//掲示板TOPページ
 Route::get('/board', 'BoardController@index')->name('board.index');
+
+//投稿処理
+Route::post('/board', 'BoardController@store')->name('board.store');
