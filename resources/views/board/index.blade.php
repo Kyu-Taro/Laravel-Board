@@ -12,6 +12,12 @@
     <h5 class="card-header">
         {{ $value->user->name }}
         <span class="config">...</span>
+        <div class="card-div on_off">
+            <ul class="config-card">
+                <li><a href="{{ route('board.index') }}">編集</a></li>
+                <li><a href="{{ route('board.index') }}">削除</a></li>
+            </ul>
+        </div>
     </h5>
     <div class="card-body">
       <p class="card-text">{{ $value->content }}</p>

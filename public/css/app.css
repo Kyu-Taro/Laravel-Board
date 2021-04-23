@@ -10967,4 +10967,31 @@ a.text-dark:focus {
     cursor: pointer;
 }
 
+ul {
+    list-style: none;
+}
+
+.card-div {
+    position: relative;
+}
+
+.config-card {
+    background: #F7F7F7;
+    width: 13%;
+    position: absolute;
+    left: 610px;
+    top: 23px;
+    padding: 0;
+    text-align: center;
+}
+
+.on_off {
+    display: none;
+}
+
+.config-card li a {
+    text-decoration: none;
+    color: black;
+}
+
 
