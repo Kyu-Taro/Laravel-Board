@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use Illuminate\Http\Request;
 use App\Models\Board;
 
 class BoardService {
@@ -27,5 +28,12 @@ class BoardService {
     {
         $board = new Board();
         $board->fill($data)->save();
+    }
+
+    public function update(Request $request)
+    {
+        $board = Board::find($request->id);
+        $board->content = $request->content;
+        $board->save();
     }
 }

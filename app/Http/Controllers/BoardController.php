@@ -36,4 +36,29 @@ class BoardController extends Controller
 
         return redirect('/board');
     }
+
+    /**
+     * 指定された投稿を取得して返す
+     *
+     * @param integer $id
+     * @return \Illuminate\View\View
+     */
+    public function show(int $id) : \Illuminate\View\View
+    {
+        $data = Board::find($id);
+        return view('board.board_fix', compact('data'));
+    }
+
+    /**
+     * 指定された投稿の内容をリクエストの内容に更新
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(Request $request) : \Illuminate\Http\RedirectResponse
+    {
+        $service = app(BoardService::class);
+        $service->update($request);
+        return redirect('/board');
+    }
 }

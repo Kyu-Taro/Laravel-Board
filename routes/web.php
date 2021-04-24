@@ -24,3 +24,9 @@ Route::get('/board', 'BoardController@index')->name('board.index');
 
 //投稿処理
 Route::post('/board', 'BoardController@store')->name('board.store');
+
+//投稿編集画面遷移
+Route::get('/board/{id}', 'BoardController@show')->name('board.show');
+
+//投稿のアップデート
+Route::post('/board/update', 'BoardController@update')->name('board.update');
