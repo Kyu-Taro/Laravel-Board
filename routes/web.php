@@ -11,13 +11,13 @@
 |
 */
 
+//初期画面表示ルート(ログイン画面に飛ぶ)
 Route::get('/', function () {
     return view('auth.login');
 });
 
+//Auth認証ルート
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 //掲示板TOPページ
 Route::get('/board', 'BoardController@index')->name('board.index');
