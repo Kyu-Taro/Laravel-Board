@@ -16,4 +16,16 @@ class BoardService {
         $data = Board::all();
         return $data;
     }
+
+    /**
+     * 新規の投稿をboardsテーブルに追加
+     *
+     * @param array $data
+     * @return void
+     */
+    public function store(array $data) : void
+    {
+        $board = new Board();
+        $board->fill($data)->save();
+    }
 }

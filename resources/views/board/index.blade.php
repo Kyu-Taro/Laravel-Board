@@ -3,7 +3,8 @@
 @section('content')
 <form method="POST" action="{{ route('board.store') }}" class="form_text">
     @csrf
-    <input class="form-control" type="text" placeholder="つぶやいてね" aria-label="readonly input example" name="text">
+    <input type="hidden" value="{{ Auth::id() }}" name="user_id">
+    <input class="form-control" type="text" placeholder="つぶやいてね" aria-label="readonly input example" name="content">
     <button type="submit" class="btn btn-primary text_btn">つぶやく</button>
 </form>
 

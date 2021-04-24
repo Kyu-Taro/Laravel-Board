@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\BoardService;
+use App\Models\Board;
 
 class BoardController extends Controller
 {
@@ -19,8 +20,20 @@ class BoardController extends Controller
         return view('board.index', compact('data'));
     }
 
-    public function store(Request $request)
+    /**
+     * 新規投稿登録
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function store(Request $request) : \Illuminate\Http\RedirectResponse
     {
-        dd($request);
+        $data = $request->all();
+        unset($data['_token']);
+
+        $service = app(BoardService::class);
+        $service->store($data);
+
+        return redirect('/board');
     }
 }
