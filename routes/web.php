@@ -19,14 +19,19 @@ Route::get('/', function () {
 //Auth認証ルート
 Auth::routes();
 
-//掲示板TOPページ
+Route::group(['middleware' => 'auth'], function(){
+    //掲示板TOPページ
 Route::get('/board', 'BoardController@index')->name('board.index');
 
 //投稿処理
 Route::post('/board', 'BoardController@store')->name('board.store');
 
-//投稿編集画面遷移
-Route::get('/board/{id}', 'BoardController@show')->name('board.show');
+//投稿の編集と削除画面に遷移できるユーザーかチェック
+Route::group(['middleware' => 'board'], function(){
+    //投稿編集画面遷移
+    Route::get('/board/{id}', 'BoardController@show')->name('board.show');
+});
 
 //投稿のアップデート
 Route::post('/board/update', 'BoardController@update')->name('board.update');
+});

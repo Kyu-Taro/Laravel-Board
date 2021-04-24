@@ -12,6 +12,7 @@
 <div class="card">
     <h5 class="card-header">
         {{ $value->user->name }}
+        @if(Auth::id() === $value->user_id)
         <span class="config">...</span>
         <div class="card-div on_off">
             <ul class="config-card">
@@ -19,6 +20,7 @@
                 <li><a href="{{ route('board.index') }}">削除</a></li>
             </ul>
         </div>
+        @endif
     </h5>
     <div class="card-body">
       <p class="card-text">{{ $value->content }}</p>
