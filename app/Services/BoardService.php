@@ -13,7 +13,7 @@ class BoardService {
      */
     public function index() : \Illuminate\Database\Eloquent\Collection
     {
-        $data = Board::all();
+        $data = Board::orderBy('created_at', 'desc')->get();
         return $data;
     }
 
