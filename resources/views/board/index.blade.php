@@ -4,6 +4,13 @@
 <form method="POST" action="{{ route('board.store') }}" class="form_text">
     @csrf
     <input type="hidden" value="{{ Auth::id() }}" name="user_id">
+    @if($errors->has('content') > 0)
+        @foreach ($errors->get('content') as $error)
+            <div class="error_class">
+                <span class="error_msg">{{ $error }}</span>
+            </div>
+        @endforeach
+    @endif
     <input class="form-control" type="text" placeholder="つぶやいてね" aria-label="readonly input example" name="content">
     <button type="submit" class="btn btn-primary text_btn">つぶやく</button>
 </form>

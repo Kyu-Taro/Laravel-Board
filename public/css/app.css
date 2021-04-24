@@ -10959,6 +10959,14 @@ a.text-dark:focus {
     display: inline;
 }
 
+.error_class {
+    text-align: left;
+}
+
+.error_msg {
+    color: red;
+}
+
 .config {
     float: right;
     font-size: 25px;

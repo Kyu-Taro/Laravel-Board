@@ -19,6 +19,7 @@ Route::get('/', function () {
 //Auth認証ルート
 Auth::routes();
 
+//認証済みユーザーのみアクセスできる
 Route::group(['middleware' => 'auth'], function(){
     //掲示板TOPページ
 Route::get('/board', 'BoardController@index')->name('board.index');

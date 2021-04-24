@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\BoardService;
 use App\Models\Board;
+use App\Http\Requests\BoardRequest;
 
 class BoardController extends Controller
 {
@@ -26,7 +27,7 @@ class BoardController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request) : \Illuminate\Http\RedirectResponse
+    public function store(BoardRequest $request) : \Illuminate\Http\RedirectResponse
     {
         $data = $request->all();
         unset($data['_token']);
@@ -55,7 +56,7 @@ class BoardController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request) : \Illuminate\Http\RedirectResponse
+    public function update(BoardRequest $request) : \Illuminate\Http\RedirectResponse
     {
         $service = app(BoardService::class);
         $service->update($request);

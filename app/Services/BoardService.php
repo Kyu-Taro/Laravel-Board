@@ -30,7 +30,13 @@ class BoardService {
         $board->fill($data)->save();
     }
 
-    public function update(Request $request)
+    /**
+     * 特定の投稿の内容を更新
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function update(Request $request) : void
     {
         $board = Board::find($request->id);
         $board->content = $request->content;
