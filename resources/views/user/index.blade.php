@@ -3,42 +3,42 @@
 @section('content')
 <div class="card" style="width: 18rem;">
     <div class="card-header">
-        {{ $user->name }}
+        {{ $data['user']->name }}
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">
           年齢:
-            @if($user->profile->age === null)
+            @if($data['user']->profile->age === null)
             未設定
             @else
-            {{ $user->profile->age }}
+            {{ $data['user']->profile->age }}
             @endif
         </li>
       <li class="list-group-item">
           性別:
-          @if($user->profile->gender === null)
+          @if($data['user']->profile->gender === null)
           未設定
-          @elseif ($user->profile->gender === 1)
+          @elseif ($data['user']->profile->gender === 1)
           男性
-          @elseif ($uesr->profile->gender === 2)
+          @elseif ($data['uesr']->profile->gender === 2)
           女性
           @endif
         </li>
         <li class="list-group-item">
             自己紹介<br/>
-            @if($user->profile->text === null)
+            @if($data['user']->profile->text === null)
             未設定
             @else
-            {{ $user->profile->text }}
+            {{ $data['user']->profile->text }}
             @endif
         </li>
     </ul>
-    @if(Auth::id() === $user->id)
+    @if(Auth::id() === $data['user']->id)
     <a class="btn btn-primary" href="{{ route('user.profile_update_show') }}">プロフィール変更</a>
     @endif
   </div>
 
-@foreach ($boards as $value)
+@foreach ($data['boards'] as $value)
 <div class="card">
     <h5 class="card-header">
         {{ $value->user->name }}
