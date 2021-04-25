@@ -62,4 +62,30 @@ class BoardController extends Controller
         $service->update($request);
         return redirect('/board');
     }
+
+    /**
+     * 指定された投稿の削除ページに遷移
+     *
+     * @param integer $id
+     * @return \Illuminate\View\View
+     */
+    public function delete(int $id) : \Illuminate\View\View
+    {
+        $data = Board::find($id);
+        return view('board.delete', compact('data'));
+    }
+
+    /**
+     * 指定された投稿を論理削除するサービスを呼び出す
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroy(Request $request) : \Illuminate\Http\RedirectResponse
+    {
+        $service = app(BoardService::class);
+        $service->destroy($request);
+
+        return redirect('/board');
+    }
 }

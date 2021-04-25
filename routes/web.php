@@ -31,8 +31,13 @@ Route::post('/board', 'BoardController@store')->name('board.store');
 Route::group(['middleware' => 'board'], function(){
     //投稿編集画面遷移
     Route::get('/board/{id}', 'BoardController@show')->name('board.show');
+    //投稿削除画面遷移
+    Route::get('/delete/{id}', 'BoardController@delete')->name('board.delete');
 });
 
 //投稿のアップデート
 Route::post('/board/update', 'BoardController@update')->name('board.update');
+
+//投稿の削除
+Route::post('/board/destroy', 'BoardController@destroy')->name('board.destroy');
 });

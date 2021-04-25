@@ -24,7 +24,7 @@
         <div class="card-div on_off">
             <ul class="config-card">
                 <li><a href="{{ route('board.show', ['id' => $value->id]) }}">編集</a></li>
-                <li><a href="{{ route('board.index') }}">削除</a></li>
+                <li><a href="{{ route('board.delete', ['id' => $value->id]) }}">削除</a></li>
             </ul>
         </div>
         @endif

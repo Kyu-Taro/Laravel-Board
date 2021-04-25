@@ -42,4 +42,16 @@ class BoardService {
         $board->content = $request->content;
         $board->save();
     }
+
+    /**
+     * 指定された投稿を論理削除する
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function destroy(Request $request) : void
+    {
+        $data = Board::find($request->id);
+        $data->delete();
+    }
 }
