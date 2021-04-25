@@ -18,7 +18,7 @@
 @foreach ($data as $value)
 <div class="card">
     <h5 class="card-header">
-        {{ $value->user->name }}
+        <a href="{{ route('user.show', ['id' => $value->user->id]) }}">{{ $value->user->name }}</a>
         @if(Auth::id() === $value->user_id)
         <span class="config">...</span>
         <div class="card-div on_off">
