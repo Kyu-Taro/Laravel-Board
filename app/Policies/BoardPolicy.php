@@ -20,7 +20,14 @@ class BoardPolicy
         //
     }
 
-    public function delete_update(User $user, Board $board)
+    /**
+     * ユーザIDと投稿者が一致するかを判定する(更新と削除で使用)
+     *
+     * @param User $user
+     * @param Board $board
+     * @return bool
+     */
+    public function delete_update(User $user, Board $board) : bool
     {
         return $user->id === $board->user_id;
     }
