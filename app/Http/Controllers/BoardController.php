@@ -84,6 +84,7 @@ class BoardController extends Controller
      */
     public function destroy(Request $request, Board $board) : \Illuminate\Http\RedirectResponse
     {
+        $this->authorize('delete_update', $board);
         $service = app(BoardService::class);
         $service->destroy($request);
 

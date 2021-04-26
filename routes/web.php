@@ -43,7 +43,7 @@ Route::group(['middleware' => 'auth'], function() {
 
         //TODO:ここにポリシー
         //投稿の削除
-        Route::post('destroy', 'BoardController@destroy')->name('board.destroy');
+        Route::post('destroy/{board}', 'BoardController@destroy')->name('board.destroy');
     });
 
     Route::group(['prefix' => 'user'], function() {
