@@ -26,4 +26,11 @@
         <input type="submit" class="btn btn-primary" value="変更">
     </form>
   </div>
+  <ul class="update_error">
+        @if($errors->any() > 0)
+            @foreach ($errors->all() as $value)
+                <li>・{{ $value }}</li>
+            @endforeach
+        @endif
+  </ul>
 @endsection

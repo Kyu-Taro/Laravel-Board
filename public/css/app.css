@@ -11006,4 +11006,8 @@ ul {
     text-align: center;
 }
 
+.update_error {
+    color: red;
+    text-align: center;
+}
 

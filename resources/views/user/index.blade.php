@@ -20,7 +20,7 @@
           未設定
           @elseif ($data['user']->profile->gender === 1)
           男性
-          @elseif ($data['uesr']->profile->gender === 2)
+          @elseif ($data['user']->profile->gender === 2)
           女性
           @endif
         </li>
