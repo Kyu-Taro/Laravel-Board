@@ -57,4 +57,7 @@
     </div>
 </div>
 @endforeach
+<div class="paginate">
+    {{ $data['boards']->links() }}
+</div>
 @endsection

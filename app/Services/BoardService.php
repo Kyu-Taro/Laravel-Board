@@ -10,11 +10,11 @@ class BoardService {
     /**
      * Boardsテーブルから全てを取得して返す
      *
-     * @return \Illuminate\Database\Eloquent\Collection
+     * @return \Illuminate\Pagination\LengthAwarePaginator
      */
-    public function index() : \Illuminate\Database\Eloquent\Collection
+    public function index() : \Illuminate\Pagination\LengthAwarePaginator
     {
-        $data = Board::orderBy('created_at', 'desc')->get();
+        $data = Board::orderBy('created_at', 'desc')->paginate(10);
         return $data;
     }
 

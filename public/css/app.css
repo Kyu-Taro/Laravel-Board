@@ -11011,3 +11011,8 @@ ul {
     text-align: center;
 }
 
+.paginate {
+    display: flex;
+    justify-content: center;
+}
+

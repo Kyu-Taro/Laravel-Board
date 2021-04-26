@@ -18,7 +18,7 @@ class UserService {
     public function show(int $id) : array
     {
         $user = User::find($id);
-        $boards = Board::where('user_id', $id)->get();
+        $boards = Board::where('user_id', $id)->paginate(10);
 
         $data = [
             'user' => $user,
