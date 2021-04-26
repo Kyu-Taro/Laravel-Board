@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<form method="POST" action="{{ route('board.update') }}" class="form_text">
+<form method="POST" action="{{ route('board.update', ['board' => $data->id]) }}" class="form_text">
     @csrf
     <input type="hidden" value="{{ $data->id }}" name="id">
     @if($errors->has('content'))

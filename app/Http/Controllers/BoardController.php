@@ -56,8 +56,9 @@ class BoardController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(BoardRequest $request) : \Illuminate\Http\RedirectResponse
+    public function update(BoardRequest $request, Board $board) : \Illuminate\Http\RedirectResponse
     {
+        $this->authorize('delete_update', $board);
         $service = app(BoardService::class);
         $service->update($request);
         return redirect('/board');
@@ -81,7 +82,7 @@ class BoardController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(Request $request) : \Illuminate\Http\RedirectResponse
+    public function destroy(Request $request, Board $board) : \Illuminate\Http\RedirectResponse
     {
         $service = app(BoardService::class);
         $service->destroy($request);

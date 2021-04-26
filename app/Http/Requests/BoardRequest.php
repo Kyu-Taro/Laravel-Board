@@ -13,11 +13,7 @@ class BoardRequest extends FormRequest
      */
     public function authorize()
     {
-        if($this->path() === 'board' || $this->path() === 'board/update') {
-            return true;
-        } else {
-            return false;
-        }
+        return true;
     }
 
     /**

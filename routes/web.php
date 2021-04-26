@@ -39,7 +39,7 @@ Route::group(['middleware' => 'auth'], function() {
 
         //TODO:ここにポリシー
         //投稿のアップデート
-        Route::post('update', 'BoardController@update')->name('board.update');
+        Route::post('update/{board}', 'BoardController@update')->name('board.update');
 
         //TODO:ここにポリシー
         //投稿の削除
