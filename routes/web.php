@@ -37,11 +37,9 @@ Route::group(['middleware' => 'auth'], function() {
             Route::get('delete/{id}', 'BoardController@delete')->name('board.delete');
         });
 
-        //TODO:ここにポリシー
         //投稿のアップデート
         Route::post('update/{board}', 'BoardController@update')->name('board.update');
 
-        //TODO:ここにポリシー
         //投稿の削除
         Route::post('destroy/{board}', 'BoardController@destroy')->name('board.destroy');
     });
