@@ -51,8 +51,7 @@ Route::group(['middleware' => 'auth'], function() {
         //プロフィール変更ページに遷移
         Route::get('profile/update_show', 'UserController@profile_update_show')->name('user.profile_update_show');
 
-        //TODO:ここにポリシー
         //プロフィール変更の実行
-        Route::post('edit', 'UserController@update')->name('user.update');
+        Route::post('profile/{profile}', 'UserController@update')->name('user.update');
     });
 });

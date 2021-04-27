@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Services\UserService;
 use App\Http\Requests\UserRequest;
+use App\Models\Profile;
 
 class UserController extends Controller
 {
@@ -41,8 +42,9 @@ class UserController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(UserRequest $request) : \Illuminate\Http\RedirectResponse
+    public function update(UserRequest $request, Profile $profile) : \Illuminate\Http\RedirectResponse
     {
+        $this->authorize('update', $profile);
         $service = app(UserService::class);
         $service->update($request);
 

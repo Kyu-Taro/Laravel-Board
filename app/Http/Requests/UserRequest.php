@@ -13,11 +13,7 @@ class UserRequest extends FormRequest
      */
     public function authorize()
     {
-        if($this->path() === 'user/edit') {
-            return true;
-        }
-
-        return false;
+        return true;
     }
 
     /**

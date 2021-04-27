@@ -5,7 +5,7 @@
     <div class="card-header">
         {{ $user->name }}
     </div>
-    <form action="{{ route('user.update') }}" method="post" class="update_form">
+    <form action="{{ route('user.update', ['profile' => $user->profile->id]) }}" method="post" class="update_form">
         @csrf
         <input type="hidden" value="{{ Auth::id() }}" name="user_id">
         <ul class="list-group list-group-flush">
