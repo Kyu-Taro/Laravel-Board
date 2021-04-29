@@ -24,7 +24,13 @@ class FavoriteController extends Controller
         return redirect('/board');
     }
 
-    public function destroy(Board $board)
+    /**
+     * お気に入り削除
+     *
+     * @param Board $board
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroy(Board $board) : \Illuminate\Http\RedirectResponse
     {
         $board->favorites()->detach(Auth::id());
 
