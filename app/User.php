@@ -46,4 +46,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Board');
     }
+
+    public function favorites()
+    {
+        return $this->belongsToMany('App\Models\Board')->withTimestamps();
+    }
 }

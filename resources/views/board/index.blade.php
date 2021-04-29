@@ -32,6 +32,19 @@
     <div class="card-body">
       <p class="card-text">{{ $value->content }}</p>
     </div>
+    @if (!$value->favorites()->where('user_id', Auth::id())->exists())
+    <form action="{{ route('favorite.add') }}" method="POST">
+        @csrf
+        <input type="hidden" value="{{ $value->id }}" name="board_id">
+        <button type="submit" class="btn btn-success">お気に入り</button>
+    </form>
+    @else
+    <form action="{{ route('favorite.destroy', ['board' => $value->id]) }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-secondary">お気に入り解除</button>
+    </form>
+    @endif
 </div>
 @endforeach
 <div class="paginate">

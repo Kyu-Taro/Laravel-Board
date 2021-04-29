@@ -54,4 +54,7 @@ Route::group(['middleware' => 'auth'], function() {
         //プロフィール変更の実行
         Route::post('profile/{profile}', 'UserController@update')->name('user.update');
     });
+
+    Route::post('favorites', 'FavoriteController@store')->name('favorite.add');
+    Route::delete('favorites/{board}', 'FavoriteController@destroy')->name('favorite.destroy');
 });
