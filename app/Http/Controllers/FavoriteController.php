@@ -21,6 +21,7 @@ class FavoriteController extends Controller
     {
         $service = app(FavoriteService::class);
         $service->store($request);
+
         Mail::to(Auth::user()->email)->queue(new FavoriteMail());
 
         return redirect('/board');
