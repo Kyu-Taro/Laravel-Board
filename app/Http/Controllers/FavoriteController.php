@@ -4,10 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Board;
-use Illuminate\Support\Facades\Auth;
 use App\Services\FavoriteService;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\FavoriteMail;
 
 class FavoriteController extends Controller
 {
@@ -21,8 +18,6 @@ class FavoriteController extends Controller
     {
         $service = app(FavoriteService::class);
         $service->store($request);
-
-        Mail::to(Auth::user()->email)->queue(new FavoriteMail());
 
         return redirect('/board');
     }
