@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Board;
 use Illuminate\Support\Facades\Auth;
-use App\User;
+use App\Services\FavoriteService;
 
 class FavoriteController extends Controller
 {
@@ -17,9 +17,8 @@ class FavoriteController extends Controller
      */
     public function store(Request $request) : \Illuminate\Http\RedirectResponse
     {
-        $id = $request->board_id;
-        $board = Board::find($id);
-        $board->favorites()->attach(Auth::id());
+        $service = app(FavoriteService::class);
+        $service->store($request);
 
         return redirect('/board');
     }
@@ -32,7 +31,8 @@ class FavoriteController extends Controller
      */
     public function destroy(Board $board) : \Illuminate\Http\RedirectResponse
     {
-        $board->favorites()->detach(Auth::id());
+        $service = app(FavoriteService::class);
+        $service->destroy($board);
 
         return redirect('/board');
     }
