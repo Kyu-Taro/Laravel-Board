@@ -5,6 +5,8 @@ namespace App\Services;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Board;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\FavoriteMail;
 
 class FavoriteService {
 
@@ -19,6 +21,9 @@ class FavoriteService {
         $id = $request->board_id;
         $board = Board::find($id);
         $board->favorites()->attach(Auth::id());
+
+        $user = Auth::user();
+        Mail::to(Auth::user()->email)->queue(new FavoriteMail($board, $user));
     }
 
     /**

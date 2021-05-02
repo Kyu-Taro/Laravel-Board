@@ -7,6 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>こんにちは</h1>
+    <h1>こんにちは！</h1>
+    <p>{{ $name }}さんがあなたの投稿</p><br/>
+    <p>【{{ $content }}】</p><br/>
+    にいいね！しました。
 </body>
 </html>
